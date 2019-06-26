@@ -5,7 +5,7 @@ import time
 import threading as Thread
 
 
-class Sender(Thread)
+class Sender(Thread):
     def __index__(self, channel, temperature):
         Thread.__init__(self)
         self.channel = channel
