@@ -29,7 +29,7 @@ while time.time() < t_end:
         body = temperature
         channel.basic_publish(exchange="", routing_key='Rasp', body=str(body))
         reftime = time.time()
-        time.sleep(math.trunc(reftime) + 1 - reftime)
+        time.sleep(math.trunc(reftime) + 0.9 - reftime)
     else:
         print('Failed to get reading. Try again!')
         sys.exit(1)
