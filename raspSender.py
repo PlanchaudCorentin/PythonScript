@@ -2,7 +2,19 @@ import sys
 import pika
 import Adafruit_DHT
 import time
-import math
+import threading as Thread
+
+
+class Sender(Thread)
+    def __index__(self, channel, temperature):
+        Thread.__init__(self)
+        self.channel = channel
+        self.temperature = temperature
+
+    def run(self):
+        print(temperature)
+        self.channel.basic_publish(exchange="", routing_key='Rasp', body=str(self.temperature))
+        time.sleep(1)
 
 
 sensor_args = { '11': Adafruit_DHT.DHT11,
@@ -18,18 +30,18 @@ else:
 
 connection = pika.BlockingConnection(pika.ConnectionParameters('192.168.43.88', credentials=pika.PlainCredentials('admin', 'devproject')))
 channel = connection.channel()
-
 channel.queue_declare('Rasp', durable='false')
+humidity, temperature = Adafruit_DHT.read_retry(sensor, pin)
 
+t = Sender(channel, temperature)
+t.start()
 t_end = time.time() + 10
 while time.time() < t_end:
     humidity, temperature = Adafruit_DHT.read_retry(sensor, pin)
     if humidity is not None and temperature is not None:
         print('Temp={0:0.1f}*  Humidity={1:0.1f}%'.format(temperature, humidity))
-        body = temperature
-        channel.basic_publish(exchange="", routing_key='Rasp', body=str(body))
-        reftime = time.time()
-        time.sleep(abs(math.trunc(reftime) + 0.9 - reftime))
     else:
         print('Failed to get reading. Try again!')
         sys.exit(1)
+t.abort()
+

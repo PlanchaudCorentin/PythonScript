@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="332bbbe8-6823-4db9-b2d0-50fb37e752ee" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/raspSender.py" beforeDir="false" afterPath="$PROJECT_DIR$/raspSender.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -27,8 +28,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/raspSender.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="13" column="12" lean-forward="true" selection-start-line="13" selection-start-column="12" selection-end-line="13" selection-end-column="12" />
+            <state relative-caret-position="295">
+              <caret line="45" column="9" selection-start-line="45" selection-start-column="9" selection-end-line="45" selection-end-column="9" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
@@ -68,10 +69,9 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="882" />
-    <option name="y" value="7" />
-    <option name="width" value="940" />
-    <option name="height" value="1090" />
+    <option name="x" value="912" />
+    <option name="width" value="938" />
+    <option name="height" value="1088" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -181,18 +181,26 @@
       <workItem from="1561383288069" duration="5940000" />
       <workItem from="1561407421667" duration="33000" />
       <workItem from="1561407616347" duration="1754000" />
-      <workItem from="1561568702917" duration="1030000" />
+      <workItem from="1561568702917" duration="2839000" />
     </task>
+    <task id="LOCAL-00001" summary="adjust sleep">
+      <created>1561569872293</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1561569872293</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12642000" />
+    <option name="totallyTimeSpent" value="14451000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="706" y="6" width="752" height="872" extended-state="0" />
+    <frame x="730" y="0" width="750" height="870" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26945245" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.26945245" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -206,7 +214,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5006993" side_tool="true" weight="0.32931727" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.3319838" />
+      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.3328823" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.32931727" />
       <window_info anchor="right" id="Remote Host" weight="0.67867434" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -220,6 +228,10 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="adjust sleep" />
+    <option name="LAST_COMMIT_MESSAGE" value="adjust sleep" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/RabbitMQ$send.coverage" NAME="send Coverage Results" MODIFIED="1561409128350" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -245,8 +257,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/raspSender.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="13" column="12" lean-forward="true" selection-start-line="13" selection-start-column="12" selection-end-line="13" selection-end-column="12" />
+        <state relative-caret-position="295">
+          <caret line="45" column="9" selection-start-line="45" selection-start-column="9" selection-end-line="45" selection-end-column="9" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
           </folding>
