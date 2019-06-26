@@ -2,6 +2,7 @@ import sys
 import pika
 import Adafruit_DHT
 import time
+import math
 
 
 sensor_args = { '11': Adafruit_DHT.DHT11,
@@ -27,6 +28,8 @@ while time.time() < t_end:
         print('Temp={0:0.1f}*  Humidity={1:0.1f}%'.format(temperature, humidity))
         body = temperature
         channel.basic_publish(exchange="", routing_key='Rasp', body=str(body))
+        reftime = time.time()
+        time.sleep(math.trunc(reftime) + 1 - reftime)
     else:
         print('Failed to get reading. Try again!')
         sys.exit(1)
