@@ -5,12 +5,11 @@ import time
 import threading
 
 
-
-
 def run(channel, temperature):
-    print(temperature)
-    channel.basic_publish(exchange="", routing_key='Rasp', body=str(temperature))
-    time.sleep(1)
+    while True:
+        print(temperature)
+        channel.basic_publish(exchange="", routing_key='Rasp', body=str(temperature))
+        time.sleep(1)
 
 
 sensor_args = { '11': Adafruit_DHT.DHT11,
