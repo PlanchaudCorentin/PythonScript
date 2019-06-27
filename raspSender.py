@@ -3,16 +3,16 @@ import pika
 import Adafruit_DHT
 import time
 import threading
-from queue import Queue
+from Queue import Queue
 
 
 def run(queue, chan):
-    while queue.get() != 'quit':
+    while True:
         temp = queue.get()
         print(temp)
         chan.basic_publish(exchange="", routing_key='Rasp', body=str(temp))
         queue.task_done()
-        time.sleep(1)
+        time.sleep(0.9)
 
 
 if __name__ == '__main__':
@@ -31,12 +31,11 @@ if __name__ == '__main__':
     pika.ConnectionParameters('192.168.43.88', credentials=pika.PlainCredentials('admin', 'devproject')))
     channel = connection.channel()
     channel.queue_declare('Rasp', durable='false')
-    m_queue = Queue()
+    m_queue = Queue(maxsize=1)
     humidity, temperature = Adafruit_DHT.read_retry(sensor, pin)
     t = threading.Thread(target=run, args=(m_queue, channel))
     t.start()
-    t_end = time.time() + 10
-    while time.time() < t_end:
+    while True:
         humidity, temperature = Adafruit_DHT.read_retry(sensor, pin)
         m_queue.put(temperature)
         if humidity is not None and temperature is not None:
@@ -44,5 +43,4 @@ if __name__ == '__main__':
         else:
             print('Failed to get reading. Try again!')
             sys.exit(1)
-    m_queue.put('quit')
 
