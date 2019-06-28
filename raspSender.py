@@ -4,13 +4,22 @@ import Adafruit_DHT
 import time
 import threading
 from Queue import Queue
+import getmac
+import json
 
 
 def run(queue, chan):
     while True:
         temp = queue.get()
-        print(temp)
-        chan.basic_publish(exchange="", routing_key='Rasp', body=str(temp))
+        body = {
+            "name": "Antoine",
+            "metricValue": temp,
+            "deviceType": "temperatureSensor",
+            "macAddress": getmac.get_mac_address().upper(),
+            "metricDate": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
+        }
+        print(body)
+        chan.basic_publish(exchange="metrics", routing_key='', body=json.dumps(body))
         queue.task_done()
         time.sleep(0.9)
 
@@ -30,7 +39,6 @@ if __name__ == '__main__':
     connection = pika.BlockingConnection(
     pika.ConnectionParameters('192.168.43.88', credentials=pika.PlainCredentials('admin', 'devproject')))
     channel = connection.channel()
-    channel.queue_declare('Rasp', durable='false')
     m_queue = Queue(maxsize=1)
     humidity, temperature = Adafruit_DHT.read_retry(sensor, pin)
     t = threading.Thread(target=run, args=(m_queue, channel))

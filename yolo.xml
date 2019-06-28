@@ -10,9 +10,9 @@
             <handlers>
                 <add name="aspNetCore" path="*" verb="*" modules="AspNetCoreModuleV2" resourceType="Unspecified"/>
             </handlers>
-            <aspNetCore processPath="dotnet" arguments=".\API.dll" stdoutLogEnabled="false"
+            <aspNetCore processPath="dotnet" arguments=".\CommandDevice.dll" stdoutLogEnabled="false"
                         stdoutLogFile=".\logs\stdout"/>
         </system.webServer>
     </location>
 </configuration>
-        <!--ProjectGuid: B981C2C6-0EF6-4264-819B-C98DAC0968A9-->
+        <!--ProjectGuid: 2A53B18C-43D1-48C3-A413-3FCBEF15FCE1-->

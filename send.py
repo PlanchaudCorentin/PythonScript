@@ -39,6 +39,7 @@ print(t_end)
 while time.time() < t_end:
     loop = loop + 1
     body = {
+        "name": "Antoine",
         "metricValue": random.randint(-10, 30),
         "deviceType": name[random.randint(0, 1)],
         "macAddress": macAddress[random.randint(0, 3)],
