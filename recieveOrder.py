@@ -11,8 +11,12 @@ channel.queue_declare('Command', durable='false')
 def callback(ch, method, properties, body):
     print(" [x] Received %r" % body)
     j = json.loads(body)
-    if(body['commandType'] == "Led"):
-        LED(17).
+    if(j['commandType'] == "Led"):
+        led = LED(j['pin'])
+        print(led.is_active)
+        led.on()
+        print(led.is_active)
+
 
 channel.basic_consume(queue='Command',
                       auto_ack=True,
